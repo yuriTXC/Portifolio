@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cores */
+:root{
+    --cor_1: #2E7D32;
+    --cor_2: #A5D6A7;
+    --cor_3: #E8F5E9;
+    --cor_4: #1B5E20;
+    --cor_texto: #ffffff;
+    --preto: #000000;
+    --lilas: #A867D4;
+}
+
+/* Propriedades do corpo do HTML junto com o plano de fundo */
+body{
+    height: 100vh; 
+    background-image: url('img/fundo.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+/* Sombra para o plano de fundo */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    z-index: 0;
+}
+
+/* Propriedades da nav-bar */
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    z-index: 10;
+}
+
+.nav_bar{
+    background-color: var(--preto);
+    opacity: 0.8;
+    justify-content: space-around;
+}
+
+nav .nav_bar{
+    position: relative;
+    height: 100%;
+    max-width: 1500px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 50px;
+}
+
+nav .nav_links{
+    display: flex;
+    align-items: center;
+}
+
+.nav_bar .nav_links{
+    list-style: none;
+    margin: 0px;
+}
+
+.nav_links li a{
+    position: relative;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 200;
+    color: var(--cor_texto);
+    padding: 10px;
+    cursor: pointer;
+}
+
+nav .nav_bar img{
+    width: 160px;
+}
+
+.nav_links li a::before{
+    content: "";
+    position: absolute;
+    left: 43%;
+    bottom: 0;
+    transform: translateX(50%);
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background: var(--cor_texto);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.nav_links li a:hover{
+    color: var(--lilas)
+}
+.nav_links li:hover a::before{
+    opacity: 1;
+}
+
+/* Propriedades do texto do centro do site */
+.textin {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--cor_texto);
+}
+
+/* Menu Hambúrguer */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 20;
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: var(--cor_texto);
+    border-radius: 2px;
+}
+
+/* Ainda não consegui colocar os botões */
+
+/* Parte que torna o site responsivo (supostamente) */
+@media (max-width: 780px) {
+    .burger {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
+
+
+    .barra_pesquisa{
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 70px;
+        z-index: 11;
+        cursor: pointer;
+    }
+
+    nav .nav_bar img{
+        display: block;
+        position: fixed;
+        left: 50px;
+        z-index: 11;
+    }
+
+    nav .nav_links {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 20px 0;
+    }
+    nav .nav_links.active {
+        display: flex;
+    }
+    .nav_links li{
+        margin: 10px 0;
+        text-align: center;
+    }
+}
+
+/* Barra de pesquisa */
+.barra_pesquisa {
+    display: flex;
+    align-items: center;
+    background: var(--cor_3);
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-left: 700px;
+}
+
+.barra_pesquisa input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px;
+    font-size: 14px;
+    color: var(--preto);
+    width: 150px;
+}
+
+.barra_pesquisa button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--preto);
+    font-size: 18px;
+}
